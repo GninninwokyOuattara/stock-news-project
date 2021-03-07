@@ -24,7 +24,7 @@ previous_date = f"{date.year}-{date.month:02d}-{(date.day-3):02d}"
 diff = float(response["Time Series (Daily)"][previous_date]["4. close"])-float(response["Time Series (Daily)"][present_date]["4. close"])
 diff_percent = round((diff * 100) / float(response["Time Series (Daily)"][present_date]["4. close"]),2)
 
-if abs(diff_percent) > 3:
+if abs(diff_percent) > 5:
     response = requests.get(url=f"https://newsapi.org/v2/everything?q=Tesla&from={present_date}&sortBy=popularity&apiKey={NEWSAPI_KEY}")
     response = response.json()
 
